@@ -1,0 +1,6 @@
+{
+  "name": "SAFE-GUARD AI",
+  "description": "An AI-powered industrial safety command center monitoring sensor anomalies, camera feeds, PPE violations, gas leaks, and critical factory risks in real time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

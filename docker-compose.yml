@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  safeguard-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safeguard_ai_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DATABASE_URL=sqlite:///./safeguard_factory.db
+      - JWT_SECRET_KEY=PROD_HIGH_SECURITY_LONG_RANDOM_SECRET_KEY_FOR_JWT
+    volumes:
+      - safeguard-db:/app
+    restart: unless-stopped
+
+volumes:
+  safeguard-db:
+    driver: local

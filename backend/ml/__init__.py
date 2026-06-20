@@ -1,0 +1,1 @@
+from backend.ml.anomaly_detector import anomaly_detector, FactoryAnomalyDetector
