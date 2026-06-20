@@ -13,7 +13,7 @@
 
 ## 📋 Overview
 
-SAFE-GUARD AI is a **production-grade, modular enterprise safety platform** designed for real-time monitoring and anomaly detection in industrial environments. It integrates computer vision, sensor telemetry, and machine learning to deliver actionable safety intelligence with minimal false-positive rates.
+SAFE-GUARD AI is a **production-grade, modular enterprise safety platform** designed for real-time monitoring and anomaly detection in industrial environments. It integrates computer vision, sensor fusion, WebSocket real-time streaming, and machine learning to detect hazards before they escalate.
 
 ### Problem Solved
 
@@ -97,7 +97,7 @@ SAFE-GUARD AI solves this through **unified, automated monitoring** with real-ti
 │  │  │  └─ /api/analytics/* (Trends & summaries)      │ │   │
 │  │  └─────────────────────────────────────────────────┘ │   │
 │  │                                                         │   │
-│  │  ┌────────────────────────────────────��────────────┐ │   │
+│  │  ┌─────────────────────────────────────────────────┐ │   │
 │  │  │  CORE SERVICES                                  │ │   │
 │  │  │  ├─ Camera Service (OpenCV + frame capture)    │ │   │
 │  │  │  ├─ Safety Engine (Rule-based classifier)      │ │   │
@@ -127,10 +127,10 @@ SAFE-GUARD AI solves this through **unified, automated monitoring** with real-ti
 
 ```
 Sensors/Cameras → Detector → Risk Engine → Alert Service → Backend DB
-                                                              ���
-                                                         WebSocket Push
-                                                              ↓
-                                                         React Dashboard
+                                                               ↑
+                                                          WebSocket Push
+                                                               ↓
+                                                          React Dashboard
 ```
 
 ---
@@ -194,7 +194,7 @@ SafeGuard-AI/
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── user.py                # User ORM model
-│   ��   ├── alert.py               # Alert event ORM model
+│   │   ├── alert.py               # Alert event ORM model
 │   │   └── sensor_reading.py      # Historical sensor data
 │   ├── database/
 │   │   ├── __init__.py
@@ -236,9 +236,10 @@ SafeGuard-AI/
 │   ├── testing.md                 # Test suite overview
 │   └── screenshots/               # UI reference images
 │       ├── dashboard.png
+│       ├── dashboard_2.png
 │       ├── surveillance.png
 │       ├── telemetry.png
-���       └── alerts.png
+│       └── alerts.png
 │
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
@@ -487,48 +488,115 @@ See **[Testing Guide](docs/testing.md)** for detailed procedures.
 
 ---
 
-## 🎨 Screenshots
+## 🎨 Screenshots & Skillsets Showcase
 
-### Dashboard Overview
-The central command hub displaying aggregated risk metrics, active integrations, personnel enrollment, and unresolved alarms with AI-powered anomaly engine reasoning.
+### 1️⃣ Dashboard Overview & System Health
 
-![Dashboard - Risk Analysis & KPI Overview](docs/screenshots/dashboard.png)
+**Central command hub** displaying aggregated risk metrics, active integrations, personnel enrollment, and unresolved alarms with AI-powered anomaly engine reasoning.
 
-System status showing model engine version (SG-NEURAL-V4.2.0), reliability index (482h MTTF), network engine latency (99.98% / 12MS), and compute burden (62% GPU utilization). Role-based security clearance displayed with action cards for maintenance tasks.
+**Technical Skillsets Demonstrated:**
+- ✅ **React Component Architecture** – Modular KPI cards with real-time state updates
+- ✅ **TypeScript Type Safety** – Strict interfaces for sensor data & alert models
+- ✅ **Zustand State Management** – Centralized global store for auth, sensors, alerts
+- ✅ **Real-time Data Visualization** – Live risk score gauge with Recharts
+- ✅ **Tailwind CSS Design** – Dark theme grid layout with responsive breakpoints
+- ✅ **Material Design Icons** – Professional icon library integration
+- ✅ **AI Integration** – Explainable AI reasoning for anomaly detection
 
-![Dashboard - System Health & Compliance](docs/screenshots/dashboard_2.png)
+System status showing model engine version (SG-NEURAL-V4.2.0), reliability index (482h MTTF), network engine latency (99.98% / 12MS), and compute burden (62% GPU utilization). Role-based security controls with Admin/Supervisor/Operative permissions.
 
----
-
-### Surveillance Feed
-Multi-camera real-time monitoring with live person detection (PERSONNEL CHECKED), mechanical hazard identification (MECHANICAL BEARING PROBE), thermal anomaly detection (FIRE DETECTED), and pressure system warnings (FLUID PRESSURE OVERHEAT RISK). Zoom controls, snapshot capture, and PA broadcast functionality for critical incidents.
-
-![Surveillance - Multi-Feed Camera Monitoring](docs/screenshots/surveillance.png)
-
----
-
-### Telemetry Grid
-Real-time sensor telemetry with four independent monitoring channels:
-- **Temperature**: 40.0°C with 40% utilization (Range: 15-110°C, +1.2% trend)
-- **Gas Levels (H₂S)**: 0.15 PPM with 75% utilization (Limit: 0.15 PPM active spectrum)
-- **Vibration (X-Axis)**: 1.2 MM/S with 12% utilization (Limit: 5.0 MM/S abnormal spike detected)
-- **Humidity**: 45% RH with 45% utilization (Range: 35-55% RH stable ambient)
-
-Live matrix analytics with multi-metric time-series aggregation across 1H, 6H, 24H, 7D windows.
-
-![Telemetry - Sensor Grid Analytics](docs/screenshots/telemetry.png)
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" alt="Dashboard - Risk Analysis & KPI Overview" width="90%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);" />
+  <br/>
+  <em>Dashboard displaying real-time risk metrics, system health, and AI reasoning</em>
+</p>
 
 ---
 
-### Alerts Ledger
-Comprehensive alert journal showing real-time incident tracking with severity color-coding:
-- **CRITICAL** (🔴 Red): Fire detected in Sector G - Warehouse 4 (High thermal signature near bay 12) - Evacuate
-- **WARNING** (🟡 Yellow): PPE violation in Sector E - Assembly line (Operator #042, Safety helmet missing)
-- **WARNING** (🟡 Yellow): Overheating in Unit 092 - Main Drive Servo (Temperature spike, system uptime: 422h 15m 38s)
+### 2️⃣ Telemetry Grid & Sensor Analytics
+
+**Real-time sensor telemetry dashboard** with four independent monitoring channels providing live metrics and historical trend analysis.
+
+**Sensor Data Displayed:**
+- **Temperature**: 40.0°C (40% utilization) | Range: 15-110°C | +1.2% trend
+- **Gas Levels (H₂S)**: 0.15 PPM (75% utilization) | Active spectrum monitoring
+- **Vibration (X-Axis)**: 1.2 MM/S (12% utilization) | Limit: 5.0 MM/S | Abnormal spike detection
+- **Humidity**: 45% RH (45% utilization) | Range: 35-55% RH | Stable ambient
+
+**Technical Skillsets Demonstrated:**
+- ✅ **IoT Sensor Integration** – Real-time telemetry aggregation from multiple sources
+- ✅ **Recharts Data Visualization** – Multi-metric time-series charts (1H, 6H, 24H, 7D windows)
+- ✅ **Server Sent Events (SSE)** – Efficient real-time streaming protocol
+- ✅ **WebSocket Communication** – Dual-path delivery for redundancy
+- ✅ **React Hooks** – useEffect for state synchronization and subscription management
+- ✅ **Responsive UI Components** – Circular progress gauges & trend indicators
+- ✅ **Data Analytics** – Moving averages & anomaly detection on historical data
+
+Live matrix analytics with multi-metric time-series aggregation.
+
+<p align="center">
+  <img src="docs/screenshots/telemetry.png" alt="Telemetry - Sensor Grid Analytics" width="90%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);" />
+  <br/>
+  <em>Telemetry grid showing real-time sensor readings with trend analysis</em>
+</p>
+
+---
+
+### 3️⃣ Surveillance Feed & Computer Vision
+
+**Multi-camera real-time monitoring system** with live hazard detection, object recognition, and thermal analysis.
+
+**Computer Vision Features:**
+- **Personnel Detection** (PERSONNEL CHECKED) – HOG-based human identification with bounding boxes
+- **Mechanical Hazard Identification** (MECHANICAL BEARING PROBE) – Moving machinery detection
+- **Thermal Anomaly Detection** (FIRE DETECTED) – HSV color thresholding for fire/overheat scenarios
+- **Precision Risk Classification** – Confidence scoring with frame annotation
+
+**Technical Skillsets Demonstrated:**
+- ✅ **OpenCV Pipeline** – Real-time frame capture & processing at 120ms latency
+- ✅ **Computer Vision** – HOG detector for human recognition, HSV thresholding for thermal anomalies
+- ✅ **Thread-Safe Operations** – Singleton camera service with RLock for concurrent access
+- ✅ **Frame Buffering** – Queue-based async frame consumption for non-blocking UI updates
+- ✅ **WebSocket Video Streaming** ��� Live frame delivery via base64 encoding
+- ✅ **React Canvas Integration** – Real-time overlay rendering with bounding boxes & labels
+- ✅ **Multi-Feed Aggregation** – Synchronized surveillance from 4+ camera sources
+- ✅ **Performance Optimization** – GPU-accelerated frame processing
+
+<p align="center">
+  <img src="docs/screenshots/surveillance.png" alt="Surveillance - Multi-Feed Camera Monitoring" width="90%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);" />
+  <br/>
+  <em>Surveillance dashboard with multi-camera feeds and real-time hazard detection overlays</em>
+</p>
+
+---
+
+### 4️⃣ Alerts Ledger & Incident Tracking
+
+**Comprehensive alert journal** showing real-time incident tracking with severity color-coding and forensic analysis capabilities.
+
+**Alert Examples:**
+- 🔴 **CRITICAL** – Fire detected in Sector G - Warehouse 4 (High thermal signature near bay 12) - *Evacuate*
+- 🟡 **WARNING** – PPE violation in Sector E - Assembly line (Operator #042, Safety helmet missing)
+- 🟡 **WARNING** – Overheating in Unit 092 - Main Drive Servo (Temperature spike, system uptime: 422h 15m 38s)
+
+**Technical Skillsets Demonstrated:**
+- ✅ **SQLAlchemy ORM** – Alert persistence with relationship mapping (User → Alert → Event)
+- ✅ **Database Schema Design** – Normalized alerts table with timestamps & metadata
+- ✅ **CRUD Operations** – Full alert lifecycle management (create, read, update, acknowledge)
+- ✅ **Event Journaling** – Forensic audit trail with immutable timestamps
+- ✅ **REST API Design** – GET/POST/PUT endpoints with JWT authentication
+- ✅ **React List Rendering** – Efficient virtualization for 1000+ alert items
+- ✅ **Real-time Updates** – WebSocket delta sync for new incident notifications
+- ✅ **ACK/Resolution Workflow** – Manual operator confirmation with reason tracking
+- ✅ **Compliance Logging** – Full audit trail for regulatory documentation
 
 Audit live feed logs for forensic analysis and compliance documentation.
 
-![Alerts - Incident Ledger & Acknowledgment](docs/screenshots/alerts.png)
+<p align="center">
+  <img src="docs/screenshots/alerts.png" alt="Alerts - Incident Ledger & Acknowledgment" width="90%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3);" />
+  <br/>
+  <em>Alerts ledger showing incident tracking with severity-based color coding and acknowledgment workflow</em>
+</p>
 
 ---
 
